@@ -1,0 +1,14 @@
+{
+  "name": "bright-horizons",
+  "version": "1.0.0",
+  "description": "This is the repository for test automation of Bright Horizons website",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.5"
+  }
+}
