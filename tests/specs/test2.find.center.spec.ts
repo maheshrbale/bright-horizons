@@ -18,6 +18,8 @@ test("Verify Find a Center Functionality", async function ({ browser }) {
   //Step2: Click on Find a Center option
   const homePage = new HomePage(page);
   await homePage.clickOnFindACenterLink();
+  const childCareLocatorPage = new ChildCareLocatorPage(page);
+  await childCareLocatorPage.waitForFindACenterMessage();
 
   //Step3: Verify that newly open page contains "/child-care-locator" as a part of its URL
   const url = page.url();
@@ -26,7 +28,6 @@ test("Verify Find a Center Functionality", async function ({ browser }) {
 
   //Step4: Type "New York" into search box and press Enter
   const searchPhrase: string = "New York";
-  const childCareLocatorPage = new ChildCareLocatorPage(page);
   await childCareLocatorPage.searchAddress(searchPhrase);
 
   //Step5: Verify if the number of found centers is the same as the number of centers
