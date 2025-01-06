@@ -31,5 +31,6 @@ export class HomePage {
 
   async clickOnFindACenterLink() {
     await this.findACenterLink.click();
+    
   }
 }

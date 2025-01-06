@@ -51,6 +51,7 @@ export class ChildCareLocatorPage {
   private numCentersResult: Locator;
   private searchResults: Locator;
   private mapToolTip: Locator;
+  private findACenterMessage: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -59,6 +60,7 @@ export class ChildCareLocatorPage {
     this.numCentersResult = page.locator(".centerDetails.results");
     this.searchResults = page.locator("div.centerResult");
     this.mapToolTip = page.locator("div.mapTooltip");
+    this.findACenterMessage = page.getByText("Enter a location to get started");
   }
 
   async searchAddress(address: string) {
@@ -91,5 +93,9 @@ export class ChildCareLocatorPage {
       throw new Error(`No Map ToolTip found`);
     }
     return new ChildCareCenterMapToolTip(tooltip);
+  }
+
+  async waitForFindACenterMessage() {
+    await this.findACenterMessage.waitFor({state: "visible", timeout: 5000});
   }
 }
