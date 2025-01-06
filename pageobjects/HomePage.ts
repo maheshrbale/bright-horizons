@@ -9,14 +9,14 @@ export class HomePage {
     this.searcher = page.locator(
       'a[href="#subnav-search-desktop-top"] .icon-search'
     );
-    this.searchField = page.locator("#search-field:visible");
-    this.searchButton = page.locator("button.btn-search:visible");
-    this.findACenterLink = page
-      .getByRole("link", { name: "Find a Center" })
-      .last();
+    this.searchField = page.locator("#subnav-search-desktop-top input#search-field");
+    this.searchButton = page.locator('#subnav-search-desktop-top button[type="submit"]');
+    const navList = page.locator(".nav-list-wrap .displayed-desktop");
+    this.findACenterLink = navList
+      .getByRole("link", { name: "Find a Center" }).last();
   }
 
-  getSearchField() {
+  getSearchField(): Locator {
     return this.searchField;
   }
 

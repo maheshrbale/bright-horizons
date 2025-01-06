@@ -6,7 +6,7 @@ export class ChildCareCenterSearchResult {
   private address: Locator;
   //More fields can be added in future
 
-  constructor(resultRow) {
+  constructor(resultRow: Locator) {
     this.title = resultRow.locator(".centerResult__name");
     this.distance = resultRow.locator(".centerResult__distance");
     this.address = resultRow.locator(".centerResult__address");
@@ -16,11 +16,11 @@ export class ChildCareCenterSearchResult {
     await this.address.click();
   }
 
-  async getTitle() {
+  async getTitle(): Promise<string | null> {
     return await this.title.textContent();
   }
 
-  async getAddress() {
+  async getAddress(): Promise<string | null> {
     return await this.address.textContent();
   }
 }
@@ -30,16 +30,16 @@ export class ChildCareCenterMapToolTip {
   private address: Locator;
   //More fields can be added in future
 
-  constructor(resultRow) {
+  constructor(resultRow: Locator) {
     this.title = resultRow.locator(".mapTooltip__headline");
     this.address = resultRow.locator(".mapTooltip__address");
   }
 
-  async getTitle() {
+  async getTitle(): Promise<string | null> {
     return await this.title.textContent();
   }
 
-  async getAddress() {
+  async getAddress(): Promise<string | null> {
     return await this.address.textContent();
   }
 }
@@ -69,7 +69,7 @@ export class ChildCareLocatorPage {
     await this.numCentersResult.waitFor({ state: "visible", timeout: 10000 });
   }
 
-  async getNumberOfSearchedCenters() {
+  async getNumberOfSearchedCenters(): Promise<number> {
     const text = await this.numCentersResult.textContent();
     if (text === null) {
       throw new Error(`No Search Results found`);
