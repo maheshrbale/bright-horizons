@@ -3,14 +3,19 @@
   "version": "1.0.0",
   "description": "This is the repository for test automation of Bright Horizons website",
   "main": "index.js",
+  "type": "module",
   "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@cucumber/cucumber": "^11.1.1",
+  "dependencies": {
     "@playwright/test": "^1.49.1",
+    "dotenv": "^16.4.7",
+    "playwright": "^1.49.1"
+  },
+  "devDependencies": {
     "@types/node": "^22.10.5",
-    "dotenv": "^16.4.7"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   }
 }

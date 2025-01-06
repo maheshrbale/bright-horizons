@@ -5,7 +5,7 @@ export class SearchResult {
   private description: Locator;
   private link: Locator;
 
-  constructor(resultRow) {
+  constructor(resultRow: Locator) {
     this.title = resultRow.locator(".title");
     this.description = resultRow.locator(".descrption");
     this.link = resultRow.locator(".link");
